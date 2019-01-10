@@ -59,3 +59,8 @@
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
+# This is the setup for the EC2 setup
+server '178.62.79.248', user: 'deploy', roles: %w{app db web}
+
+# including the deploy_to setting here in case we want to change it at this server
+set :deploy_to,       "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
